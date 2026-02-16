@@ -8,7 +8,7 @@
             @auth
                 @php
                     $isSuper = auth()->user()->role === 'super_admin';
-                    $isAdmin = auth()->user()->collaborateurs()->first()?->role === 'admin_entreprise';
+                    $isAdmin = auth()->user()->collaborateurs()->first()->role === 'admin_entreprise';
                 @endphp
 
                 @if($isSuper)

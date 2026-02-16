@@ -125,7 +125,7 @@
                     </div>
                 @endforeach
             @else
-                @php $isAdminEntreprise = auth()->user()->collaborateurs()->first()?->role === 'admin_entreprise'; @endphp
+                @php $isAdminEntreprise = auth()->user()->collaborateurs()->first()->role === 'admin_entreprise'; @endphp
                 @if($isAdminEntreprise)
                     {{-- Grouper les ateliers par événement pour l'admin_entreprise --}}
                     @php $groupedByEvent = $ateliers->groupBy('evenement.id_event'); @endphp

@@ -1,9 +1,9 @@
-@extends('layouts.app')
+﻿@extends('layouts.app')
 
 @section('content')
 <div class="container mx-auto px-4 py-6">
     <div class="max-w-6xl mx-auto">
-        <!-- En-tête de l'événement -->
+        <!-- En-tÃªte de l'événement -->
         <x-card>
             <!-- Image de l'événement -->
             <div class="relative">
@@ -31,7 +31,7 @@
                     </div>
                 @endif
                 
-                <!-- Badges d'état -->
+                <!-- Badges d'Ã©tat -->
                 <div class="absolute top-4 right-4 flex space-x-2">
                     <span class="px-3 py-1 inline-flex text-sm leading-5 font-semibold rounded-full {{ $evenement->status === 'active' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800' }}">
                         {{ $evenement->status === 'active' ? 'Actif' : 'Inactif' }}
@@ -66,7 +66,7 @@
                         </div>
                     </div>
                     
-                    <!-- Mode et visibilité -->
+                    <!-- Mode et visibilitÃ© -->
                     <div class="flex flex-wrap gap-2">
                         <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-indigo-100 text-indigo-800">
                             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -84,12 +84,12 @@
                     </div>
                 </div>
 
-                <!-- Détails de l'événement -->
+                <!-- DÃ©tails de l'événement -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
                     <div class="bg-gray-50 rounded-lg p-4">
                         <div class="flex items-center justify-between">
                             <div>
-                                <p class="text-sm font-medium text-gray-600">Capacité</p>
+                                <p class="text-sm font-medium text-gray-600">CapacitÃ©</p>
                                 <p class="text-2xl font-bold text-gray-900">{{ $evenement->capacite }}</p>
                                 <p class="text-xs text-gray-500">participants</p>
                             </div>
@@ -175,8 +175,8 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                                     </svg>
                                     <div>
-                                        <p class="font-medium text-gray-900">Début</p>
-                                        <p class="text-sm text-gray-600">{{ \Illuminate\Support\Carbon::parse($evenement->date_heure_debut)->format('d/m/Y à H:i') }}</p>
+                                        <p class="font-medium text-gray-900">Debut</p>
+                                        <p class="text-sm text-gray-600">{{ \Illuminate\Support\Carbon::parse($evenement->date_heure_debut)->format('d/m/Y a H:i') }}</p>
                                     </div>
                                 </div>
                                 <div class="flex items-center space-x-4 p-3 bg-green-50 rounded-lg">
@@ -185,7 +185,7 @@
                                     </svg>
                                     <div>
                                         <p class="font-medium text-gray-900">Fin</p>
-                                        <p class="text-sm text-gray-600">{{ \Illuminate\Support\Carbon::parse($evenement->date_heure_fin)->format('d/m/Y à H:i') }}</p>
+                                        <p class="text-sm text-gray-600">{{ \Illuminate\Support\Carbon::parse($evenement->date_heure_fin)->format('d/m/Y a H:i') }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -210,7 +210,7 @@
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
                                         </svg>
                                         <div>
-                                            <p class="font-medium text-gray-900">Lien de l'événement</p>
+                                            <p class="font-medium text-gray-900">Lien de l'activite</p>
                                             <a href="{{ $evenement->event_link }}" target="_blank" class="text-sm text-purple-600 hover:text-purple-800 underline">{{ $evenement->event_link }}</a>
                                         </div>
                                     </div>
@@ -224,7 +224,7 @@
 
         <!-- Description -->
         <x-card>
-            <h2 class="text-2xl font-bold text-gray-900 mb-4">Description de l'événement</h2>
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">Description de l'activite</h2>
             <div class="prose prose-lg max-w-none">
                 <p class="text-gray-700 leading-relaxed">{{ $evenement->description }}</p>
             </div>
@@ -244,96 +244,470 @@
                                 </div>
                                 <div>
                                     <h3 class="text-lg font-semibold text-gray-900">Plaquette PDF</h3>
-                                    <p class="text-sm text-gray-600">Téléchargez la documentation complète de l'événement</p>
+                                    <p class="text-sm text-gray-600">TÃ©lÃ©chargez la documentation complÃ¨te de l'événement</p>
                                 </div>
                             </div>
                             <a href="{{ route('evenements.plaquette.download', $evenement) }}" class="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-md">
                             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                             </svg>
-                            Télécharger la plaquette
+                            TÃ©lÃ©charger la plaquette
                         </a>
                     </div>
                 </div>
             </x-card>
         @endif
 
-        <!-- Inscriptions -->
+        <!-- Sponsors -->
         <x-card>
             <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-6">
                 <div>
-                    <h2 class="text-2xl font-bold text-gray-900">Inscriptions à l'événement</h2>
-                    <p class="text-gray-600">{{ $evenement->inscriptions->count() }} personne(s) inscrite(s)</p>
+                    <h2 class="text-2xl font-bold text-gray-900">Sponsors de l'evenement</h2>
+                    <p class="text-gray-600">Associez les partenaires qui sponsorisent cet evenement</p>
                 </div>
             </div>
 
-            @if($evenement->inscriptions->isEmpty())
-                <div class="text-center py-12">
-                    <svg class="w-12 h-12 text-gray-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-2a6 6 0 0112 0v2zm0 0h6v-2a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                    </svg>
-                    <p class="text-gray-500 text-lg">Aucune inscription pour cet événement</p>
-                </div>
-            @else
-                <div class="overflow-x-auto">
-                    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                        <thead class="bg-gray-50 dark:bg-gray-800">
-                            <tr>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                                    Participant
-                                </th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                                    Email
-                                </th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                                    Entreprise
-                                </th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                                    Poste
-                                </th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                                    Date d'inscription
-                                </th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                                    Actions
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody class="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
-                            @foreach($evenement->inscriptions as $inscription)
-                                <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
-                                        {{ $inscription->user->name ?? 'N/A' }}
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600 dark:text-gray-400">
-                                        {{ $inscription->user->email ?? 'N/A' }}
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600 dark:text-gray-400">
-                                        {{ $inscription->company ?? '-' }}
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600 dark:text-gray-400">
-                                        {{ $inscription->poste ?? '-' }}
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600 dark:text-gray-400">
-                                        @if($inscription->date_ins)
-                                            {{ \Carbon\Carbon::parse($inscription->date_ins)->format('d/m/Y H:i') }}
-                                        @else
-                                            -
-                                        @endif
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                        <a href="#" class="text-blue-600 hover:text-blue-900 dark:text-blue-400 dark:hover:text-blue-300">
-                                            Voir détails
-                                        </a>
-                                    </td>
-                                </tr>
+            @if(auth()->user()->collaborateurs()->first() && auth()->user()->collaborateurs()->first()->role === 'admin_entreprise')
+                <form method="POST" action="{{ route('evenements.partenaires.attach', $evenement) }}" class="grid grid-cols-1 md:grid-cols-4 gap-3 mb-6">
+                    @csrf
+                    <div class="md:col-span-2">
+                        <label for="id_partenaire" class="block text-sm font-medium text-gray-700 mb-1">Partenaire</label>
+                        <select name="id_partenaire" id="id_partenaire" class="w-full rounded-lg border-gray-300 focus:border-indigo-500 focus:ring-indigo-500" required>
+                            <option value="">Selectionner un sponsor</option>
+                            @foreach(($availablePartenaires ?? collect()) as $partenaire)
+                                <option value="{{ $partenaire->id_partenaire }}">{{ $partenaire->nom }} ({{ ucfirst($partenaire->type) }})</option>
                             @endforeach
-                        </tbody>
-                    </table>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="montant" class="block text-sm font-medium text-gray-700 mb-1">Montant</label>
+                        <input type="number" step="0.01" min="0" name="montant" id="montant" class="w-full rounded-lg border-gray-300 focus:border-indigo-500 focus:ring-indigo-500" placeholder="Ex: 5000">
+                    </div>
+                    <div class="flex items-end">
+                        <button type="submit" class="w-full inline-flex items-center justify-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">
+                            Ajouter sponsor
+                        </button>
+                    </div>
+                    <div class="md:col-span-4">
+                        <label for="contribution" class="block text-sm font-medium text-gray-700 mb-1">Contribution</label>
+                        <input type="text" name="contribution" id="contribution" class="w-full rounded-lg border-gray-300 focus:border-indigo-500 focus:ring-indigo-500" placeholder="Description de la contribution">
+                    </div>
+                </form>
+            @endif
+
+            @if($evenement->partenaires->isEmpty())
+                <div class="text-center py-8 text-gray-500">Aucun sponsor associe pour le moment.</div>
+            @else
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    @foreach($evenement->partenaires->sortBy([['ordre', 'asc'], ['nom', 'asc']]) as $partenaire)
+                        <div class="border border-gray-200 rounded-xl p-4 flex items-center justify-between gap-4">
+                            <div class="flex items-center gap-3">
+                                @if($partenaire->logo_url)
+                                    <img src="{{ $partenaire->logo_url }}" alt="{{ $partenaire->nom }}" class="w-14 h-14 object-contain rounded-lg border border-gray-200 p-1">
+                                @endif
+                                <div>
+                                    <p class="font-semibold text-gray-900">{{ $partenaire->nom }}</p>
+                                    <p class="text-xs text-gray-500 uppercase">{{ $partenaire->type }}</p>
+                                    @if(!is_null($partenaire->pivot->montant))
+                                        <p class="text-xs text-gray-600">Montant: {{ number_format((float) $partenaire->pivot->montant, 2, ',', ' ') }}</p>
+                                    @endif
+                                </div>
+                            </div>
+                            @if(auth()->user()->collaborateurs()->first() && auth()->user()->collaborateurs()->first()->role === 'admin_entreprise')
+                                <form method="POST" action="{{ route('evenements.partenaires.detach', [$evenement, $partenaire]) }}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="inline-flex items-center px-3 py-2 text-sm bg-red-100 text-red-700 rounded-lg hover:bg-red-200 transition">
+                                        Retirer
+                                    </button>
+                                </form>
+                            @endif
+                        </div>
+                    @endforeach
                 </div>
             @endif
         </x-card>
 
+        <!-- Inscriptions -->
+        <x-card>
+            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-6">
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900">Inscriptions a l'evenement</h2>
+                    <p class="text-gray-600">{{ $evenement->inscriptions->count() }} personne(s) inscrite(s)</p>
+                </div>
+                @if(!$evenement->inscriptions->isEmpty())
+<<<<<<< HEAD
+                    <a href="{{ route('inscriptions.export-csv', $evenement->id_event) }}" class="inline-flex items-center px-6 py-3 bg-emerald-500 text-white font-semibold rounded-lg hover:bg-emerald-600 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105">
+                        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                        📥 Exporter en CSV
+=======
+                    <a href="{{ route('inscriptions.export-csv', $evenement->id_event) }}" class="inline-flex items-center px-6 py-3 bg-emerald-500 text-white font-semibold rounded-lg hover:bg-emerald-600 transition-all duration-200 shadow-lg hover:shadow-xl">
+                        Exporter en CSV
+>>>>>>> a08b5f5 (améliorations)
+                    </a>
+                @endif
+            </div>
+
+            @if($evenement->inscriptions->isEmpty())
+                <div class="text-center py-12 text-gray-500 text-lg">Aucune inscription pour cet evenement</div>
+            @else
+<<<<<<< HEAD
+                @if(auth()->user()->collaborateurs()->first() && auth()->user()->collaborateurs()->first()->role === 'admin_entreprise')
+                    <form id="validation-form" action="{{ route('inscriptions.valider') }}" method="POST" class="mb-6">
+                        @csrf
+                        <input type="hidden" name="evenement_id" value="{{ $evenement->id_event }}">
+                        
+                        <div class="bg-gradient-to-r from-blue-100 to-indigo-100 border-2 border-blue-400 rounded-lg p-5 mb-4 shadow-md">
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                                <div>
+                                    <p class="font-bold text-lg text-blue-900">⚙️ Actions de validation</p>
+                                    <p class="text-sm text-blue-700 font-medium">Sélectionnez les inscriptions à valider</p>
+                                </div>
+                                <div class="flex flex-wrap gap-3">
+                                    <label class="inline-flex items-center px-4 py-2 bg-white border-2 border-blue-500 rounded-lg hover:bg-blue-50 hover:border-blue-600 cursor-pointer transition-all font-medium">
+                                        <input type="checkbox" id="select-all-checkbox" class="form-checkbox h-5 w-5 text-blue-700">
+                                        <span class="ml-2 text-sm font-bold text-blue-900">✓ Sélectionner tout</span>
+                                    </label>
+                                    <button type="submit" name="action" value="selected" class="inline-flex items-center px-6 py-2 bg-green-500 text-white font-bold rounded-lg hover:bg-green-600 active:bg-green-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:bg-green-400" disabled id="validate-selected-btn">
+                                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        ✓ Valider sélectionnées
+                                    </button>
+                                    <button type="submit" name="action" value="all" class="inline-flex items-center px-6 py-2 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 active:bg-blue-800 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105">
+                                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        ✓✓ Valider TOUTES
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="overflow-x-auto">
+                            <table class="w-full table-auto divide-y divide-gray-200 dark:divide-gray-700">
+                                <thead class="bg-gray-50 dark:bg-gray-800">
+                                    <tr>
+                                        <th class="px-3 py-2 w-8 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                                            <input type="checkbox" id="table-select-all" class="form-checkbox h-4 w-4 text-blue-600">
+                                        </th>
+                                        <th class="px-3 py-2 w-40 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                                            Participant
+                                        </th>
+                                        <th class="px-3 py-2 w-56 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                                            Email / Téléphone
+                                        </th>
+                                        <th class="px-3 py-2 w-36 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                                            Entreprise
+                                        </th>
+                                        <th class="px-3 py-2 w-56 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                                            Ateliers
+                                        </th>
+                                        <th class="px-3 py-2 w-36 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                                            Date d'inscription
+                                        </th>
+                                        <th class="px-3 py-2 w-28 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                                            Statut
+                                        </th>
+                                        <th class="px-3 py-2 w-28 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                                            Actions
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
+                                    @foreach($evenement->inscriptions as $inscription)
+                                        <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                                            <td class="px-3 py-2 whitespace-nowrap">
+                                                @if($inscription->statut !== 'validée')
+                                                    <input type="checkbox" name="inscription_ids[]" value="{{ $inscription->id_inscription }}" class="form-checkbox h-4 w-4 text-blue-600 inscription-checkbox">
+                                                @else
+                                                    <span class="text-green-600">✓</span>
+                                                @endif
+                                            </td>
+
+                                            <td class="px-3 py-2 whitespace-normal break-words text-sm font-medium text-gray-900 dark:text-white">
+                                                {{ $inscription->user->name ?? 'N/A' }}
+                                            </td>
+
+                                            <td class="px-3 py-2 whitespace-normal break-words text-sm text-gray-600 dark:text-gray-400">
+                                                <div class="flex items-center space-x-3">
+                                                    <div class="leading-tight">
+                                                        <div class="font-medium text-gray-900 dark:text-white">{{ $inscription->user->email ?? 'N/A' }}</div>
+                                                        <div class="text-xs text-gray-500">{{ $inscription->user->telephone ?? '-' }}</div>
+                                                    </div>
+                                                    <button type="button" class="copy-contact-btn px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded text-xs text-gray-700 dark:text-gray-200 border border-gray-200" data-email="{{ $inscription->user->email ?? '' }}" data-phone="{{ $inscription->user->telephone ?? '' }}">Copier</button>
+                                                </div>
+                                            </td>
+
+                                            <td class="px-3 py-2 whitespace-normal break-words text-sm text-gray-600 dark:text-gray-400">
+                                                {{ $inscription->company ?? '-' }}
+                                            </td>
+
+                                            <td class="px-3 py-2 max-w-[220px] whitespace-normal break-words text-sm text-gray-600 dark:text-gray-400">
+                                                {{ $inscription->ateliers->pluck('titre')->implode(', ') ?: '-' }}
+                                            </td>
+
+                                            <td class="px-3 py-2 whitespace-normal text-sm text-gray-600 dark:text-gray-400">
+                                                @if($inscription->date_ins)
+                                                    {{ \Carbon\Carbon::parse($inscription->date_ins)->format('d/m/Y H:i') }}
+                                                @else
+                                                    -
+                                                @endif
+                                            </td>
+
+                                            <td class="px-3 py-2 whitespace-nowrap text-sm">
+                                                @if($inscription->statut === 'validée')
+                                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                                                        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                                        </svg>
+                                                        Validée
+                                                    </span>
+                                                @else
+                                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-yellow-100 text-yellow-800">
+                                                        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm0-7a1 1 0 11-2 0 1 1 0 012 0z" clip-rule="evenodd"></path>
+                                                        </svg>
+                                                        En attente
+                                                    </span>
+                                                @endif
+                                            </td>
+
+                                            <td class="px-3 py-2 whitespace-nowrap text-sm font-medium">
+                                                <div class="flex items-center space-x-2">
+                                                    <a href="{{ route('inscriptions.show', $inscription) }}" class="text-blue-600 hover:text-blue-900 dark:text-blue-400 dark:hover:text-blue-300 flex items-center">
+                                                        <i class="fas fa-eye mr-2"></i>Voir détails
+                                                    </a>
+
+                                                    @if($inscription->statut === 'validée')
+                                                        <a href="{{ route('inscription.badge.download', $inscription->id_inscription) }}" class="inline-flex items-center px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 text-sm shadow-md">
+                                                            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 5v14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 12l-7 7-7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                                            Badge PDF
+                                                        </a>
+                                                    @else
+                                                        <button class="inline-flex items-center px-3 py-1 bg-gray-200 text-gray-600 rounded text-sm" disabled>
+                                                            Badge (valider d'abord)
+                                                        </button>
+                                                    @endif
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </form>
+
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function() {
+                            const selectAllCheckbox = document.getElementById('select-all-checkbox');
+                            const tableSelectAll = document.getElementById('table-select-all');
+                            const inscriptionCheckboxes = document.querySelectorAll('.inscription-checkbox');
+                            const validateBtn = document.getElementById('validate-selected-btn');
+                            let updatingState = false;
+
+                            function updateValidateButtonState() {
+                                const checkedCount = document.querySelectorAll('.inscription-checkbox:checked').length;
+                                validateBtn.disabled = checkedCount === 0;
+                            }
+
+                            function setCheckboxes(checked) {
+                                inscriptionCheckboxes.forEach(checkbox => checkbox.checked = checked);
+                                tableSelectAll.checked = checked;
+                                selectAllCheckbox.checked = checked;
+                            }
+
+                            selectAllCheckbox.addEventListener('change', function() {
+                                if (updatingState) return;
+                                updatingState = true;
+                                setCheckboxes(this.checked);
+                                updateValidateButtonState();
+                                updatingState = false;
+                            });
+
+                            tableSelectAll.addEventListener('change', function() {
+                                if (updatingState) return;
+                                updatingState = true;
+                                setCheckboxes(this.checked);
+                                updateValidateButtonState();
+                                updatingState = false;
+                            });
+
+                            inscriptionCheckboxes.forEach(checkbox => {
+                                checkbox.addEventListener('change', function() {
+                                    if (updatingState) return;
+                                    updatingState = true;
+                                    const allChecked = Array.from(inscriptionCheckboxes).every(cb => cb.checked);
+                                    selectAllCheckbox.checked = allChecked;
+                                    tableSelectAll.checked = allChecked;
+                                    updateValidateButtonState();
+                                    updatingState = false;
+                                });
+                            });
+
+                            // Copy contact (email / phone)
+                            function fallbackCopyTextToClipboard(text) {
+                                var textArea = document.createElement("textarea");
+                                textArea.value = text;
+                                // Avoid scrolling to bottom
+                                textArea.style.top = "0";
+                                textArea.style.left = "0";
+                                textArea.style.position = "fixed";
+                                document.body.appendChild(textArea);
+                                textArea.focus();
+                                textArea.select();
+
+                                try {
+                                    var successful = document.execCommand('copy');
+                                    document.body.removeChild(textArea);
+                                    return successful;
+                                } catch (err) {
+                                    document.body.removeChild(textArea);
+                                    return false;
+                                }
+                            }
+
+                            function copyText(text, btn) {
+                                if (!text) return;
+                                if (navigator.clipboard && navigator.clipboard.writeText) {
+                                    navigator.clipboard.writeText(text).then(function() {
+                                        const orig = btn.innerHTML;
+                                        btn.innerHTML = 'Copié ✓';
+                                        setTimeout(() => btn.innerHTML = orig, 1400);
+                                    });
+                                } else {
+                                    const ok = fallbackCopyTextToClipboard(text);
+                                    const orig = btn.innerHTML;
+                                    btn.innerHTML = ok ? 'Copié ✓' : 'Erreur';
+                                    setTimeout(() => btn.innerHTML = orig, 1400);
+                                }
+                            }
+
+                            document.querySelectorAll('.copy-contact-btn').forEach(btn => {
+                                btn.addEventListener('click', function() {
+                                    const email = this.dataset.email || '';
+                                    const phone = this.dataset.phone || '';
+                                    const text = email + (phone ? ' / ' + phone : '');
+                                    copyText(text, this);
+                                });
+                            });
+                        });
+                    </script>
+                @else
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                            <thead class="bg-gray-50 dark:bg-gray-800">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                                        Participant
+                                    </th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                                        Email / Téléphone
+                                    </th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                                        Entreprise
+                                    </th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                                        Ateliers
+                                    </th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                                        Date d'inscription
+                                    </th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                                        Statut
+                                    </th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                                        Actions
+                                    </th>
+=======
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Nom</th>
+                                <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Email</th>
+                                <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Telephone</th>
+                                <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Inscription</th>
+                                <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Statut verification</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            @foreach($evenement->inscriptions as $inscription)
+                                <tr class="hover:bg-gray-50">
+                                    <td class="px-4 py-3 text-sm font-medium text-gray-900">{{ $inscription->user->name ?? 'N/A' }}</td>
+                                    <td class="px-4 py-3 text-sm text-gray-700">{{ $inscription->user->email ?? 'N/A' }}</td>
+                                    <td class="px-4 py-3 text-sm text-gray-700">{{ $inscription->user->telephone ?? '-' }}</td>
+                                    <td class="px-4 py-3 text-sm text-gray-700">{{ $inscription->date_ins ? \Carbon\Carbon::parse($inscription->date_ins)->format('d/m/Y H:i') : '-' }}</td>
+                                    <td class="px-4 py-3 text-sm">
+                                        @if($inscription->verified_at || $inscription->statut === 'validée')
+                                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800">Verifiee</span>
+                                        @else
+                                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-yellow-100 text-yellow-800">Pas encore verifiee</span>
+                                        @endif
+                                    </td>
+>>>>>>> a08b5f5 (améliorations)
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
+                                @foreach($evenement->inscriptions as $inscription)
+                                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                                            <td class="px-3 py-2 whitespace-normal break-words text-sm font-medium text-gray-900 dark:text-white">
+                                                {{ $inscription->user->name ?? 'N/A' }}
+                                            </td>
+                                            <td class="px-3 py-2 whitespace-normal break-words text-sm text-gray-600 dark:text-gray-400">
+                                                <div class="flex items-center space-x-3">
+                                                    <div class="leading-tight">
+                                                        <div class="font-medium text-gray-900 dark:text-white">{{ $inscription->user->email ?? 'N/A' }}</div>
+                                                        <div class="text-xs text-gray-500">{{ $inscription->user->telephone ?? '-' }}</div>
+                                                    </div>
+                                                    <button type="button" class="copy-contact-btn px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded text-xs text-gray-700 dark:text-gray-200 border border-gray-200" data-email="{{ $inscription->user->email ?? '' }}" data-phone="{{ $inscription->user->telephone ?? '' }}">Copier</button>
+                                                </div>
+                                            </td>
+                                            <td class="px-3 py-2 whitespace-normal break-words text-sm text-gray-600 dark:text-gray-400">
+                                                {{ $inscription->company ?? '-' }}
+                                            </td>
+                                            <td class="px-3 py-2 max-w-[220px] whitespace-normal break-words text-sm text-gray-600 dark:text-gray-400">
+                                                {{ $inscription->ateliers->pluck('titre')->implode(', ') ?: '-' }}
+                                            </td>
+                                            <td class="px-3 py-2 whitespace-normal text-sm text-gray-600 dark:text-gray-400">
+                                                @if($inscription->date_ins)
+                                                    {{ \Carbon\Carbon::parse($inscription->date_ins)->format('d/m/Y H:i') }}
+                                                @else
+                                                    -
+                                                @endif
+                                            </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                            @if($inscription->statut === 'validée')
+                                                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                                                    <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                                    </svg>
+                                                    Validée
+                                                </span>
+                                            @else
+                                                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-yellow-100 text-yellow-800">
+                                                    <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm0-7a1 1 0 11-2 0 1 1 0 012 0z" clip-rule="evenodd"></path>
+                                                    </svg>
+                                                    En attente
+                                                </span>
+                                            @endif
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                            <a href="{{ route('inscriptions.show', $inscription) }}" class="text-blue-600 hover:text-blue-900 dark:text-blue-400 dark:hover:text-blue-300 flex items-center">
+                                                <i class="fas fa-eye mr-2"></i>Voir détails
+                                            </a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                @endif
+            @endif
+        </x-card>
         <!-- Ateliers -->
         <x-card>
             <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-6">
@@ -438,7 +812,7 @@
                                     <form action="{{ route('evenements.ateliers.destroy', [$evenement, $atelier]) }}" method="POST" class="inline">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="inline-flex items-center px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet atelier ? Cette action est irréversible.')">
+                                        <button type="submit" class="inline-flex items-center px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors" onclick="return confirm('ÃŠtes-vous sÃ»r de vouloir supprimer cet atelier ? Cette action est irrÃ©versible.')">
                                             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
                                             </svg>
@@ -465,7 +839,7 @@
                 <form action="{{ route('evenements.destroy', $evenement) }}" method="POST" class="inline">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="inline-flex items-center px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors shadow-md" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet événement ? Cette action est irréversible et supprimera également tous les ateliers associés.')">
+                    <button type="submit" class="inline-flex items-center px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors shadow-md" onclick="return confirm('ÃŠtes-vous sÃ»r de vouloir supprimer cet événement ? Cette action est irrÃ©versible et supprimera Ã©galement tous les ateliers associÃ©s.')">
                         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
                         </svg>

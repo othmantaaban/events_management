@@ -17,7 +17,7 @@
 <body>
     <div class="header">
         <div class="title">{{ $evenement->titre }}</div>
-        <div class="meta">{{ $evenement->entreprise?->nom ?? '' }} • {{ ucfirst($evenement->type) }} • {{ ucfirst($evenement->visibility) }}</div>
+        <div class="meta">{{ $evenement->entreprise->nom ?? '' }} • {{ ucfirst($evenement->type) }} • {{ ucfirst($evenement->visibility) }}</div>
     </div>
 
     @php

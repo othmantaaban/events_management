@@ -12,20 +12,20 @@
     @endphp
 
     @if(app()->environment('local'))
-        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-        <script src="{{ mix('js/app.js') }}" defer></script>
+            <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <script src="{{ mix('js/app.js') }}" defer></script>
     @elseif($hasManifest)
         @php $manifestContents = json_decode(file_get_contents($manifest), true); @endphp
         @if(isset($manifestContents['resources/css/app.css']['file']))
             <link rel="stylesheet" href="{{ asset('build/' . $manifestContents['resources/css/app.css']['file']) }}">
             <script type="module" src="{{ asset('build/' . $manifestContents['resources/js/app.js']['file']) }}"></script>
         @else
-        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-        <script src="{{ mix('js/app.js') }}" defer></script>
+                <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <script src="{{ mix('js/app.js') }}" defer></script>
         @endif
     @else
-        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-        <script src="{{ mix('js/app.js') }}" defer></script>
+            <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <script src="{{ mix('js/app.js') }}" defer></script>
     @endif
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">

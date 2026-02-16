@@ -11,7 +11,7 @@
     <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script> <!-- Remplacez par votre kit FontAwesome -->
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <script src="{{ mix('js/app.js') }}" defer></script>
 </head>
 <body class="antialiased font-sans bg-gray-100 dark:bg-slate-900 text-gray-800 dark:text-gray-200">
