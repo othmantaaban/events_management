@@ -116,7 +116,13 @@ Route::get('/analytics/export-csv', [App\Http\Controllers\DashboardController::c
      // Download or generate plaquette (PDF) 
      Route::get('evenements/{evenement}/plaquette', [EvenementController::class, 'downloadPlaquette']) 
          ->name('evenements.plaquette.download');
-     
+
+     // Sponsors/partenaires association on event
+     Route::post('evenements/{evenement}/partenaires', [EvenementController::class, 'attachPartenaire'])
+         ->name('evenements.partenaires.attach');
+     Route::delete('evenements/{evenement}/partenaires/{partenaire}', [EvenementController::class, 'detachPartenaire'])
+         ->name('evenements.partenaires.detach');
+
      // Voir les détails d'une inscription
      Route::get('inscriptions/{inscription}', [InscriptionController::class, 'show'])
          ->name('inscriptions.show');
@@ -185,7 +191,7 @@ Route::get('/analytics/export-csv', [App\Http\Controllers\DashboardController::c
          ->name('partenaires.store')
          ->middleware('checkrole:admin_entreprise'); 
  
-     // Ã‰vÃ©nements - Super Admin et Admin Entreprise 
+     // Ã‰vÃ‚nements - Super Admin et Admin Entreprise 
      Route::resource('evenements', \App\Http\Controllers\Admin\EvenementController::class) 
          ->middleware('checkrole:super_admin,admin_entreprise'); 
  
